@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas Tree Demo</title>
+    <style media="screen">
+      html, body, canvas {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById('canvas')
+canvas.width = canvas.clientWidth
+canvas.height = canvas.clientHeight
+
+const ctx = canvas.getContext('2d')
+ctx.scale(0.7, 0.7)
+
+ctx.fillStyle = 'red'
+
+ctx.beginPath()
+ctx.arc(100, 100, 50, 0, 2 * Math.PI)
+ctx.fill()
+
+ctx.beginPath()
+ctx.arc(250, 100, 50, 0, 1 * Math.PI)
+ctx.fill()
+
+ctx.beginPath()
+ctx.arc(400, 100, 50, 0, 0.5 * Math.PI)
+ctx.fill()
+</script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Canvas Tree Demo</title>
+    <style media="screen">
+      html, body, canvas {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+<script>
+const canvas = document.getElementById('canvas')
+canvas.width = canvas.clientWidth
+canvas.height = canvas.clientHeight
+
+const ctx = canvas.getContext('2d')
+ctx.fillStyle = 'red'
+
+const speed = 300 // per second
+function draw(elapsed) {
+  let seconds = elapsed / 1000
+  let x = seconds * speed % canvas.width
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+  ctx.save()
+  ctx.scale(0.7, 0.7)
+
+  ctx.fillRect(x, 50, 100, 100)
+
+  ctx.restore()
+  requestAnimationFrame(draw)
+}
+requestAnimationFrame(draw)
+</script>
+  </body>
+</html>
